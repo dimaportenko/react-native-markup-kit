@@ -1,7 +1,7 @@
 {
   "name": "react-native-markup-kit",
   "title": "React Native Markup Kit",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React Native components to simplify mark up",
   "main": "index.js",
   "scripts": {
