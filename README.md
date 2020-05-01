@@ -11,7 +11,7 @@ $ npm install react-native-markup-kit --save
 
 ## Components
     
-###Center
+### Center
 ```
 <Center>
     ...
@@ -24,7 +24,7 @@ alternative to
 </View>
 ```
 
-###Row
+### Row
 ```
 <Row>
     ...
@@ -37,7 +37,7 @@ alternative to
 </View>
 ```
 
-###Spacer
+### Spacer
 Create space between Components could be alternative to margin style usage
 ```
 <Spacer size={10} />
