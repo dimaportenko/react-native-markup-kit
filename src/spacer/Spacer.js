@@ -1,11 +1,11 @@
-import { View } from 'react-native';
-import PropTypes from 'prop-types';
+/** @flow */
 import React from 'react';
+import { View } from 'react-native';
 
-const Spacer = ({ size }) => (<View style={{ height: size, width: size }} />);
-
-Spacer.propTypes = {
-  size: PropTypes.number,
+type Props = {
+  size: number
 };
+
+const Spacer = ({ size }: Props): React$Node => (<View style={{ height: size, width: size }} />);
 
 export default Spacer;

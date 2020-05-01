@@ -1,8 +1,9 @@
-import { View, StyleSheet } from 'react-native';
-import PropTypes from 'prop-types';
+/** @flow */
 import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import type { ViewProps } from 'react-native/Libraries/Components/View/ViewPropTypes';
 
-const Row = props => (
+const Row = (props: ViewProps): React$Node => (
   <View style={[styles.row, props.style]}>
     {props.children}
   </View>
@@ -14,10 +15,5 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
 });
-
-Row.propTypes = {
-  style: PropTypes.object,
-  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-};
 
 export default Row;
