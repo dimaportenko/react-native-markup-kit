@@ -6,7 +6,7 @@
 
 // export * from './style';
 export { constants as Constants } from './helpers/Constants';
-// export {default as View, ViewPropTypes} from './components/view';
+// export { default as View, ViewPropTypes } from './components/view';
 // export {default as Text, TextPropTypes} from './components/text';
 // export {default as TouchableOpacity, TouchableOpacityProps} from './components/touchableOpacity';
 // export {default as Button, ButtonPropTypes} from './components/button';
