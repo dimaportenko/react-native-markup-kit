@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import Y from 'y';
+import { Constants } from 'react-native-markup-kit';
 
 export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
 
   React.useEffect(() => {
-    Y.multiply(3, 7).then(setResult);
+    setResult(Constants.windowWidth);
   }, []);
 
   return (
