@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text } from 'react-native';
-import { Constants, View } from '../../src';
+import { Constants, View, Text } from '../../src';
 
 export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
@@ -10,16 +9,9 @@ export default function App() {
   }, []);
 
   return (
-    <View flex center>
-      <Text>Result: {result}</Text>
+    <View flex center bg-blue30>
+      <Text white>Window Width: {result}</Text>
+      <Text white>Window Height: {Constants.windowHeight}</Text>
     </View>
   );
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
