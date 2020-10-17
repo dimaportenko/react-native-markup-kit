@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, Text } from 'react-native';
-import { Constants, View } from 'react-native-markup-kit';
+import { Constants, View } from '../../src';
 
 export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
@@ -10,7 +10,7 @@ export default function App() {
   }, []);
 
   return (
-    <View>
+    <View flex center>
       <Text>Result: {result}</Text>
     </View>
   );

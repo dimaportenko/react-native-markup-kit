@@ -6,7 +6,6 @@
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
-    "emitDeclarationOnly": true,
     "esModuleInterop": true,
     "declaration": true,
     "declarationDir": "./generatedTypes",
