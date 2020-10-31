@@ -1,3 +1,17 @@
+# OSX
+#
+.DS_Store
+
+# VSCode
+.vscode/
+jsconfig.json
+
 .circleci
 example
 
+# Android/IJ
+#
+.idea
+.gradle
+local.properties
+android.iml
