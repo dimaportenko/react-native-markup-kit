@@ -4,7 +4,10 @@ This is lightweight fork of [react-native-ui-lib](https://github.com/wix/react-n
 ## Installing
 `npm install react-native-markup-kit`    
 or    
-`yarn add react-native-markup-kit`    
+`yarn add react-native-markup-kit`  
+
+## Docs    
+Check more in [wiki](https://github.com/troublediehard/react-native-markup-kit/wiki)    
     
 ## Create your own Design System in 3 easy steps    
     
