@@ -6,11 +6,13 @@ import {
   BorderRadiuses,
   Spacings,
   ThemeManager,
+  Shadows
 } from '../style';
 import { BorderRadiusesLiterals } from '../style/borderRadiuses';
 import TypographyPresets from '../style/typographyPresets';
 import { SpacingLiterals } from '../style/spacings';
 import { colorsPalette } from '../style/colorsPalette';
+import { ShadowsPresets } from '../style/shadowsPresets';
 export const FLEX_KEY_PATTERN = /^flex(G|S)?(-\d*)?$/;
 export const PADDING_KEY_PATTERN = new RegExp(
   `padding[LTRBHV]?-([0-9]*|${Spacings.getKeysPattern()})`
@@ -33,6 +35,7 @@ export interface AlteredOptions {
 export interface ExtractedStyle {
   color?: ReturnType<typeof extractColorValue>;
   typography?: ReturnType<typeof extractTypographyValue>;
+  shadows?: ReturnType<typeof extractShadowValue>;
   backgroundColor?: ReturnType<typeof extractBackgroundColorValue>;
   borderRadius?: ReturnType<typeof extractBorderRadiusValue>;
   paddings?: ReturnType<typeof extractPaddingValues>;
@@ -76,6 +79,7 @@ export type FlexLiterals = keyof typeof STYLE_KEY_CONVERTERS;
 export type NativeFlexModifierKeyType = typeof STYLE_KEY_CONVERTERS[FlexLiterals];
 export type ColorLiterals = keyof typeof colorsPalette;
 export type TypographyLiterals = keyof typeof TypographyPresets;
+export type ShadowsLiterals = keyof typeof ShadowsPresets;
 export type BorderRadiusLiterals = keyof typeof BorderRadiusesLiterals;
 export type AlignmentLiterals =
   | 'row'
@@ -100,6 +104,7 @@ export type Modifier<T extends string> = Partial<Record<T, boolean>>;
 export type CustomModifier = { [key: string]: boolean };
 
 export type TypographyModifiers = Modifier<TypographyLiterals> | CustomModifier;
+export type ShadowsModifiers = Modifier<ShadowsLiterals> | CustomModifier;
 export type ColorsModifiers = Modifier<ColorLiterals> | CustomModifier;
 export type BackgroundColorModifier = Modifier<'bg'>;
 export type AlignmentModifiers = Modifier<AlignmentLiterals>;
@@ -161,6 +166,22 @@ export function extractTypographyValue(
   });
 
   return typography;
+}
+export function extractShadowValue(
+  props: Dictionary<any>
+): object | undefined {
+  const shadowPropsKeys = (_.chain(props)
+    .keys()
+    .filter((key) => Shadows.getKeysPattern().test(key))
+    .value() as unknown) as Array<keyof typeof ShadowsPresets>;
+  let shadows: any;
+  _.forEach(shadowPropsKeys, (key) => {
+    if (props[key] === true) {
+      shadows = { ...shadows, ...Shadows[key] };
+    }
+  });
+
+  return shadows;
 }
 
 export function extractPaddingValues(props: Dictionary<any>) {
@@ -417,6 +438,7 @@ export function generateModifiersStyle(
     alignments: true,
     flex: true,
     position: true,
+    shadows: true,
   },
   props: Dictionary<any>
 ) {
@@ -429,6 +451,9 @@ export function generateModifiersStyle(
   }
   if (options.typography) {
     style.typography = extractTypographyValue(boundProps);
+  }
+  if (options.shadows) {
+    style.shadows = extractShadowValue(boundProps);
   }
   if (options.backgroundColor) {
     style.backgroundColor = extractBackgroundColorValue(boundProps);

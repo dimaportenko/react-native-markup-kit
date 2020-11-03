@@ -3,4 +3,4 @@ export { default as asBaseComponent, BaseComponentInjectedProps, } from './asBas
 export { default as forwardRef, ForwardRefInjectedProps } from './forwardRef';
 export { default as withScrollEnabler, WithScrollEnablerProps, } from './withScrollEnabler';
 export { default as withScrollReached, WithScrollReachedProps, } from './withScrollReached';
-export { ContainerModifiers, MarginModifiers, TypographyModifiers, ColorsModifiers, BackgroundColorModifier, } from './modifiers';
+export { ContainerModifiers, MarginModifiers, TypographyModifiers, ShadowsModifiers, ColorsModifiers, BackgroundColorModifier, } from './modifiers';

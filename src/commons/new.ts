@@ -17,6 +17,7 @@ export {
   ContainerModifiers,
   MarginModifiers,
   TypographyModifiers,
+  ShadowsModifiers,
   ColorsModifiers,
   BackgroundColorModifier,
 } from './modifiers';

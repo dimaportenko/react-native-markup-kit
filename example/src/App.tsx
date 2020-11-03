@@ -16,6 +16,14 @@ export default function App() {
       <TouchableOpacity>
         <Text white>Window Height: {Constants.windowHeight}</Text>
       </TouchableOpacity>
+
+      <View
+        height={100}
+        width={100}
+        bg-grey80
+        marginT-20
+        shadow50
+      />
     </View>
   );
 }

@@ -13,12 +13,11 @@ import {
   BaseComponentInjectedProps,
   ForwardRefInjectedProps,
   ContainerModifiers,
+  ShadowsModifiers,
 } from '../../commons/new';
 import { constants as Constants } from '../../helpers/Constants';
 
-export interface ViewPropTypes
-  extends Omit<ViewProps, 'style'>,
-    ContainerModifiers {
+export type ViewPropTypes = ViewProps & ContainerModifiers & ShadowsModifiers & {
   /**
    * If true, will render as SafeAreaView
    */
@@ -118,6 +117,7 @@ class View extends PureComponent<PropsTypes, ViewState> {
       alignments,
       flexStyle,
       positionStyle,
+      shadows,
     } = modifiers;
     const Element = this.Container;
     return (
@@ -136,6 +136,7 @@ class View extends PureComponent<PropsTypes, ViewState> {
           margins,
           alignments,
           style,
+          shadows,
         ]}
         ref={forwardedRef}
       >

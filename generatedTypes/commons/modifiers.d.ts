@@ -2,6 +2,7 @@ import _ from 'lodash';
 import { BorderRadiusesLiterals } from '../style/borderRadiuses';
 import TypographyPresets from '../style/typographyPresets';
 import { colorsPalette } from '../style/colorsPalette';
+import { ShadowsPresets } from '../style/shadowsPresets';
 export declare const FLEX_KEY_PATTERN: RegExp;
 export declare const PADDING_KEY_PATTERN: RegExp;
 export declare const MARGIN_KEY_PATTERN: RegExp;
@@ -18,6 +19,7 @@ export interface AlteredOptions {
 export interface ExtractedStyle {
     color?: ReturnType<typeof extractColorValue>;
     typography?: ReturnType<typeof extractTypographyValue>;
+    shadows?: ReturnType<typeof extractShadowValue>;
     backgroundColor?: ReturnType<typeof extractBackgroundColorValue>;
     borderRadius?: ReturnType<typeof extractBorderRadiusValue>;
     paddings?: ReturnType<typeof extractPaddingValues>;
@@ -57,6 +59,7 @@ export declare type FlexLiterals = keyof typeof STYLE_KEY_CONVERTERS;
 export declare type NativeFlexModifierKeyType = typeof STYLE_KEY_CONVERTERS[FlexLiterals];
 export declare type ColorLiterals = keyof typeof colorsPalette;
 export declare type TypographyLiterals = keyof typeof TypographyPresets;
+export declare type ShadowsLiterals = keyof typeof ShadowsPresets;
 export declare type BorderRadiusLiterals = keyof typeof BorderRadiusesLiterals;
 export declare type AlignmentLiterals = 'row' | 'spread' | 'center' | 'centerH' | 'centerV' | 'left' | 'right' | 'top' | 'bottom';
 export declare type PositionLiterals = 'absF' | 'absL' | 'absR' | 'absT' | 'absB' | 'absV' | 'absH';
@@ -65,6 +68,7 @@ export declare type CustomModifier = {
     [key: string]: boolean;
 };
 export declare type TypographyModifiers = Modifier<TypographyLiterals> | CustomModifier;
+export declare type ShadowsModifiers = Modifier<ShadowsLiterals> | CustomModifier;
 export declare type ColorsModifiers = Modifier<ColorLiterals> | CustomModifier;
 export declare type BackgroundColorModifier = Modifier<'bg'>;
 export declare type AlignmentModifiers = Modifier<AlignmentLiterals>;
@@ -77,6 +81,7 @@ export declare type ContainerModifiers = AlignmentModifiers & PositionModifiers 
 export declare function extractColorValue(props: Dictionary<any>): any;
 export declare function extractBackgroundColorValue(props: Dictionary<any>): any;
 export declare function extractTypographyValue(props: Dictionary<any>): object | undefined;
+export declare function extractShadowValue(props: Dictionary<any>): object | undefined;
 export declare function extractPaddingValues(props: Dictionary<any>): Partial<Record<NativePaddingKeyType, number>>;
 export declare function extractMarginValues(props: Dictionary<any>): Partial<Record<NativeMarginModifierKeyType, number>>;
 export declare function extractAlignmentsValues(props: Dictionary<any>): any;
@@ -105,6 +110,7 @@ export declare function generateModifiersStyle(options: {
     alignments: boolean;
     flex: boolean;
     position: boolean;
+    shadows: boolean;
 } | undefined, props: Dictionary<any>): ExtractedStyle;
 export declare function getAlteredModifiersOptions(currentProps: any, nextProps: any): AlteredOptions;
 export {};
