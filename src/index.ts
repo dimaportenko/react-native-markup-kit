@@ -11,4 +11,4 @@ export {default as Text, TextPropTypes} from './components/text';
 export {default as TouchableOpacity, TouchableOpacityProps} from './components/touchableOpacity';
 // export {default as Button, ButtonPropTypes} from './components/button';
 // export {default as Image, ImageProps} from './components/image';
-export * from '../typings';
+// export * from '../typings';
